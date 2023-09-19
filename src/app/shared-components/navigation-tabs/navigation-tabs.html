@@ -1,0 +1,18 @@
+<div id="container" class="mt-4 mx-4">
+  <p-tabView [(activeIndex)]="activeIndex">
+    <p-tabPanel header="Retry API - Loading" (click)="activeIndex = 0">
+      <app-retry-component *ngIf="activeIndex == 0">
+      </app-retry-component>
+    </p-tabPanel>
+    <p-tabPanel header="Search Component" (click)="activeIndex = 1">
+      <app-search-component *ngIf="activeIndex == 1"
+         [maxSearchLength]="maxSearchLength"
+         [minSearchLength]="minSearchLength"
+         [relevanceOptions]="relevanceOptions"
+         [checkboxValues]="numberOfCities"
+         [multiselect]="cities"
+        (searchEvent)="searchDone($event)">
+      </app-search-component>
+    </p-tabPanel>
+  </p-tabView>
+</div>

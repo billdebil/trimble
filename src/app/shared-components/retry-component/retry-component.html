@@ -1,0 +1,12 @@
+<div id="retry-component">
+  <p class="fw-bold d-flex flex-column align-items-center">
+        <span class="mb-5">
+          {{ userMessage }}
+        </span>
+    <p-progressSpinner *ngIf="isLoading"
+       styleClass="w-2rem h-2rem" strokeWidth="6"
+       fill="var(--surface-ground)"
+       animationDuration="1.6s">
+    </p-progressSpinner>
+  </p>
+</div>

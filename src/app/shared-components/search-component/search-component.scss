@@ -1,0 +1,40 @@
+#search-component {
+  .search-input {
+    width: 20rem;
+  }
+
+  .required {
+    color: red;
+  }
+
+  .multiselect-options {
+    width: 20rem;
+  }
+
+  .search-placeholder {
+    margin-top: 3rem;
+  }
+
+  .disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}
+
+::ng-deep.p-multiselect {
+  width: 20rem !important;
+}
+
+::ng-deep.pi-spinner:before {
+  color: red;
+}
+
+::ng-deep.pi-search:before {
+  color: blue;
+  font-weight: bold;
+}
+
+::ng-deep.search-button .p-button{
+  width: 10rem !important;
+}

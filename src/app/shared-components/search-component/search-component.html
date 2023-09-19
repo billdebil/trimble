@@ -1,0 +1,41 @@
+<div id="search-component">
+  <span class="fw-bold mb-2 mt-1 ms-2 d-block"> Search Component</span>
+  <div class="search-container">
+    <span class="p-input-icon-right">
+       <i class="pi pi-search pe-1"
+          [ngClass]="{'disabled' : searchModel.searchQuery.length <= 2}"
+          (click)="emitSearchQuery()">
+       </i>
+       <input type="text"
+              minlength="2" maxlength="50"
+              class="search-input"
+              [ngClass]="{'ng-invalid ng-dirty' : searchModel.searchQuery.length < 2}"
+              pInputText
+              [(ngModel)]="searchModel.searchQuery"/>
+    </span>
+    <div class="radio-buttons-options d-flex pt-2">
+      <span class="me-2 fw-bold">Active <span class="required">*</span></span>
+      <div class="flex align-items-center me-1 ms-2" *ngFor="let option of relevanceOptions">
+        <p-radioButton name="relevance" [value]="option" [(ngModel)]="searchModel.relevance" [inputId]="option"></p-radioButton>
+        <label [for]="option" class="ms-1">{{option}}</label>
+      </div>
+    </div>
+
+    <div class="multiselect-options mt-4 d-block">
+      <span class="fw-bold mb-2 d-block">Language <span class="required">*</span></span>
+      <p-multiSelect [options]="multiselect" [(ngModel)]="searchModel.multiselect" optionLabel="name"></p-multiSelect>
+    </div>
+
+    <div class="multiple-checkbox-options">
+      <span class="fw-bold my-2 d-block">Type <span class="required">*</span></span>
+      <div class="flex align-items-center gap-1 mb-2" *ngFor="let option of checkboxValues">
+        <p-checkbox [name]="option" [value]="option" [(ngModel)]="searchModel.checkboxOptions" [inputId]="option"></p-checkbox>
+        <label class="ms-2" [for]="option">{{option}}</label>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="searchModel.searchQuery.length > 2" class="mt-4 d-block">
+    <p-button label="Search" class="search-button" (click)="emitSearchQuery()"></p-button>
+  </div>
+</div>

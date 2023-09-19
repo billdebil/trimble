@@ -1,0 +1,16 @@
+<div id="search-results">
+  <div class="no-results" *ngIf="!searchResults.length">
+    No result for the current search.
+  </div>
+  <div class="results-display" *ngIf="searchResults.length">
+    <span class="search-results-number d-block"> {{searchResults.length}} search results.</span>
+    <div class="result-card d-block p-4 m-2" *ngFor="let item of searchResults">
+      <!--  mocked data  -->
+      <span>{{item.name}}</span>
+      <span>{{item.email}}</span>
+      <span>{{item.phone}}</span>
+      <span>{{item.username}}</span>
+      <span>{{item.website}}</span>
+    </div>
+  </div>
+</div>
